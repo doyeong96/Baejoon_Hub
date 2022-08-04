@@ -1,2 +1,2 @@
-# Baejoon_practice
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+#백준 허브
+##공부한 기록을 자동커밋합니다 화이팅!
