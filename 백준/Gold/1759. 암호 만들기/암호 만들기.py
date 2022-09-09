@@ -9,22 +9,19 @@ def BT(idx):
         # 조건을 만족시킬 수 있게끔
     else:
         while idx != c:
-            if visted[idx] == 0:
-                char = chars[idx]
-                dap.append(char)
-                if char in VS:
-                    V += 1
-                else:
-                    C += 1
-                visted[idx] = -1
-                BT(idx+1)
-                visted[idx] = 0
-                a = dap.pop()
-                if a in VS:
-                    V -= 1
-                else:
-                    C -= 1
-                idx += 1
+            char = chars[idx]
+            dap.append(char)
+            if char in VS:
+                V += 1
+            else:
+                C += 1
+            BT(idx + 1)
+            idx += 1
+            a = dap.pop()
+            if a in VS:
+                V -= 1
+            else:
+                C -= 1
 
 l, c = map(int, input().split())
 chars = sorted(list(map(str, input().split())))
@@ -34,4 +31,6 @@ visted = [0] * c
 # 모음 자음 갯수
 V = C = 0
 dap = []
+# idx = 0
 BT(0)
+# BT()
