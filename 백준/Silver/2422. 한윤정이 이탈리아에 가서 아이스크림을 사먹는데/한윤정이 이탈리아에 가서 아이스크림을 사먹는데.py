@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-no = [[[0] for _ in range(n + 1)] for _ in range(n + 1)]
+no = [[0] * (n+1) for _ in range(n+1)]
 for _ in range(m):
     a, b = map(int, input().split())
     no[a][b] = 1
