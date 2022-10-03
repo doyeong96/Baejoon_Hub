@@ -1,18 +1,16 @@
 def bt(dep, pick):
     if len(pick) == m:
-        li.add(tuple(pick))
+        print(*pick)
         return
-    while dep != n:
-        pick.append(arr[dep])
-        bt(dep, pick)
-        dep += 1
-        pick.pop()
+    over = 0
+    for i in range(dep, n):
+        if over != arr[i]:
+            over = arr[i]
+            pick.append(arr[i])
+            bt(i, pick)
+            pick.pop()
 
 
 n, m = map(int, input().split())
 arr = sorted(list(map(int, input().split())))
-li = set()
 bt(0, [])
-li = sorted(list(li))
-for li in li:
-    print(*li)
