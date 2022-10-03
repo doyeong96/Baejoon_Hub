@@ -1,13 +1,11 @@
-def bt(dep, pick):
+def bt(now, pick):
     if len(pick) == m:
         print(*pick)
         return
-    else:
-        while dep != n:
-            pick.append(arr[dep])
-            bt(dep, pick)
-            pick.pop()
-            dep += 1
+    for i in range(now, n):
+        pick.append(arr[i])
+        bt(i, pick)
+        pick.pop()
 
 
 n, m = map(int, input().split())
