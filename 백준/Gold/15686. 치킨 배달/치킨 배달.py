@@ -1,4 +1,4 @@
-def dfs(select, check, dep):
+def dfs(select, check, k):
     # 선택한 치킨집 방문 처리
     global dvisit, dap, road
 
@@ -20,20 +20,9 @@ def dfs(select, check, dep):
         road = 0
         return
 
-    for i in range(dep, len(chicken)):
-        # if dvisit[i] == 0:
-            # dvisit[i] = 1
-        dfs(select + 1, check + [chicken[i]], i+1)
-            # dvisit[i] = 0
-        dfs(select + 1, check, i + 1)
-
-
-    # for i in range(2):
-    #     for j in range(len(chicken)):
-    #         if not i:
-    #             dfs(select+1, check + [chicken[j]])
-    #         else:
-    #             dfs(select+1, check)
+    for i in range(k, len(chicken) - (m - select) + 1):
+        dfs(select + 1, check + [chicken[i]], i + 1)
+        dfs(select, check, i + 1)
 
 # 최단거리 측정을 위해서 bfs
 
