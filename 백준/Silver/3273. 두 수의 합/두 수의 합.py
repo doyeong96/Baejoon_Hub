@@ -1,3 +1,4 @@
+# 투포인터
 n = int(input())
 arr = sorted(list(map(int, input().split())))
 x = int(input())
