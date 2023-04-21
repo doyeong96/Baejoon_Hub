@@ -17,6 +17,8 @@ def dja():
         price, now = heappop(q)
         for next, nprice in g[now]:
             cost = price + nprice
+            if cost > dis[next]:
+                continue
             if dis[next] > cost:
                 dis[next] = cost
                 heappush(q, (cost, next))
