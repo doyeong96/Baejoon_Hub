@@ -2,9 +2,6 @@ import sys
 input = sys.stdin.readline
 
 from heapq import heappop, heappush
-
-from collections import deque
-
 INF = float('inf')
 
 
@@ -15,6 +12,8 @@ def dja():
 
     while q:
         price, now = heappop(q)
+        if now == e:
+            return price
         for next, nprice in g[now]:
             cost = price + nprice
             if cost > dis[next]:
@@ -22,6 +21,7 @@ def dja():
             if dis[next] > cost:
                 dis[next] = cost
                 heappush(q, (cost, next))
+    return dis[e]
 
 
 n, m = map(int, input().split())
@@ -35,5 +35,5 @@ for _ in range(m):
     g[b].append((a, c))
 s, e = map(int, input().split())
 
-dja()
-print(dis[e])
+print(dja())
+# print(dis[e])
