@@ -9,8 +9,7 @@ dr = [0, -1, -1, -1, 0, 1, 1, 1]
 dc = [-1, -1, 0, 1, 1, 1, 0, -1]
 
 # 대각선 방향
-drc = [-1, -1, 1, 1]
-dcc = [-1, 1, 1, -1]
+
 
 n, m = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(n)]
@@ -38,20 +37,22 @@ def go(move, lenth):
     while cloud:
         r, c = cloud.popleft()
         vis[r][c] = 0
-        for d in range(4):
-            nr = r + drc[d]
-            nc = c + dcc[d]
+        for d in range(1, 8, 2):
+            nr = r + dr[d]
+            nc = c + dc[d]
             if 0 <= nr < n and 0 <= nc < n:
                 if arr[nr][nc] != 0:
                     arr[r][c] += 1
     make()
 
+
 def make():
     for r in range(n):
         for c in range(n):
             if arr[r][c] >= 2 and vis[r][c] == -1:
-                cloud.append((r,c))
+                cloud.append((r, c))
                 arr[r][c] -= 2
+
 
 for _ in range(m):
     vis = [[-1] * n for _ in range(n)]
@@ -66,5 +67,5 @@ for _ in range(m):
 s = 0
 for r in range(n):
     for c in range(n):
-        s+= arr[r][c]
+        s += arr[r][c]
 print(s)
