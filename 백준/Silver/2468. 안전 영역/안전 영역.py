@@ -1,3 +1,8 @@
+import sys
+
+# sys.stdin = open("sample.txt", 'r')
+input = sys.stdin.readline
+
 from collections import deque
 
 dr = [0, 0, -1, 1]
@@ -24,14 +29,12 @@ def bfs(sr, sc, rain):
 
 n = int(input())
 arr = [list(map(int, input().split())) for _ in range(n)]
-# minV = 987654321
-# maxV = -987654321
-# for i in range(n):
-#     for j in range(n):
-#         if maxV < arr[i][j]:
-#             maxV = arr[i][j]
-maxV = max(max(arr))
-# print(maxV)
+
+maxV = 0
+for r in range(n):
+    for c in range(n):
+        maxV = max(maxV, arr[r][c])
+
 dap = 0
 # 잠길수있는 최소부터
 for i in range(maxV):
@@ -43,7 +46,6 @@ for i in range(maxV):
                 bfs(r, c, i)
                 safe += 1
 
-    if dap < safe:
-        dap = safe
+    dap = max(dap, safe)
 
 print(dap)
