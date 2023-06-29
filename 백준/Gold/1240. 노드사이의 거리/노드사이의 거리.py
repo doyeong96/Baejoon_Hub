@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1240
+# bfs
 import sys
 
 # sys.stdin = open("sample.txt", 'r')
