@@ -1,6 +1,7 @@
 def solution(arr):
-    ans = []
-    ans.append(arr[0])
+    ans = [arr[0]]
+    print(ans)
+    # ans.append(arr[0])
     n = len(arr)
     
     for i in range(1,n):
