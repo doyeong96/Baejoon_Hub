@@ -9,8 +9,7 @@ while True:
     n = int(input())
 
     if n == 0:
-        exit()
-
+        break
     name = [0] * (n + 1)
     for i in range(n):
         name[i + 1] = input().strip()
